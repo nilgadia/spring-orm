@@ -1,6 +1,5 @@
 package org.shahid.converter;
 
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.shahid.dto.RolePermissionDto;
 import org.shahid.entity.RolePermission;
