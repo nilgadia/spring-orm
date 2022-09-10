@@ -55,20 +55,20 @@
 
         <sql>
             INSERT INTO TBL_USER_ROLE
-            (PK_USER_ROLE_ID, FK_USER_ID, FK_ROLE_ID)
-            VALUES(1, 1, 1);
+            (FK_USER_ID, FK_ROLE_ID)
+            VALUES(1, 1);
         </sql>
 
         <sql>
             INSERT INTO TBL_USER_ROLE
-            (PK_USER_ROLE_ID, FK_USER_ID, FK_ROLE_ID)
-            VALUES(2, 1, 2);
+            (FK_USER_ID, FK_ROLE_ID)
+            VALUES(1, 2);
         </sql>
 
         <sql>
             INSERT INTO TBL_USER_ROLE
-            (PK_USER_ROLE_ID, FK_USER_ID, FK_ROLE_ID)
-            VALUES(3, 2, 2);
+            (FK_USER_ID, FK_ROLE_ID)
+            VALUES(2, 2);
         </sql>
 
         <sql>
