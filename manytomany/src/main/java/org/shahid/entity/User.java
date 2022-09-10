@@ -20,6 +20,7 @@ public class User implements Serializable {
     @Column(name = "pk_user_id")
     private int id;
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    private List<UserRole> userRoles;
+    @ManyToMany
+    @JoinTable(name="TBL_USER_ROLE", joinColumns=@JoinColumn(name="fk_user_id"), inverseJoinColumns=@JoinColumn(name="fk_role_id"))
+    private List<Role> roles;
 }
