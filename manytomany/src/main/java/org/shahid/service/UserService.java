@@ -20,4 +20,8 @@ public class UserService {
         List<User> users = repository.findAll();
         return converter.mapEntitiesToDtos(repository.findAll());
     }
+
+    public UserDto save(UserDto userDto){
+        return converter.mapEntityToDto(repository.save(converter.mapDtoToEntity(userDto)));
+    }
 }
