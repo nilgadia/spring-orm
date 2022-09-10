@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="shahid" id="test-data">
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_USER
+            (PK_USER_ID, NAME)
+            VALUES(2, N'Khalid');
+        </sql>
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_USER
+            (PK_USER_ID, NAME)
+            VALUES(1, N'Shahid');
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_ROLE
+            (PK_ROLE_ID, NAME)
+            VALUES(1, N'CEO');
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_ROLE
+            (PK_ROLE_ID, NAME)
+            VALUES(2, N'VP');
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_URL
+            (PK_URL_ID, [PATH], DESCRIPTION)
+            VALUES(1, N'google.com', N'Google');
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_URL
+            (PK_URL_ID, [PATH], DESCRIPTION)
+            VALUES(2, N'yahoo.com', N'Yahoo');
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_PRIVILEGE
+            (PK_PRIVILEGE_ID, CODE, DESCRIPTION)
+            VALUES(1, N'READ', N'Read');
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_PRIVILEGE
+            (PK_PRIVILEGE_ID, CODE, DESCRIPTION)
+            VALUES(2, N'WRITE', N'Write');
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_USER_ROLE
+            (PK_USER_ROLE_ID, FK_USER_ID, FK_ROLE_ID)
+            VALUES(1, 1, 1);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_USER_ROLE
+            (PK_USER_ROLE_ID, FK_USER_ID, FK_ROLE_ID)
+            VALUES(2, 1, 2);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_USER_ROLE
+            (PK_USER_ROLE_ID, FK_USER_ID, FK_ROLE_ID)
+            VALUES(3, 2, 2);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_ROLE_PERMISSION
+            (PK_ROLE_PERMISSION_ID, FK_URL_ID, FK_ROLE_ID)
+            VALUES(1, 1, 1);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_ROLE_PERMISSION
+            (PK_ROLE_PERMISSION_ID, FK_URL_ID, FK_ROLE_ID)
+            VALUES(2, 2, 1);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_ROLE_PERMISSION
+            (PK_ROLE_PERMISSION_ID, FK_URL_ID, FK_ROLE_ID)
+            VALUES(3, 2, 2);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_PERMISSION_PRIVILEGE
+            (PK_PERMISSION_PRIVILEGE_ID, FK_ROLE_PERMISSION_ID, FK_PRIVILEGE_ID)
+            VALUES(1, 1, 1);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_PERMISSION_PRIVILEGE
+            (PK_PERMISSION_PRIVILEGE_ID, FK_ROLE_PERMISSION_ID, FK_PRIVILEGE_ID)
+            VALUES(2, 1, 2);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_PERMISSION_PRIVILEGE
+            (PK_PERMISSION_PRIVILEGE_ID, FK_ROLE_PERMISSION_ID, FK_PRIVILEGE_ID)
+            VALUES(3, 2, 1);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_PERMISSION_PRIVILEGE
+            (PK_PERMISSION_PRIVILEGE_ID, FK_ROLE_PERMISSION_ID, FK_PRIVILEGE_ID)
+            VALUES(4, 2, 2);
+        </sql>
+
+        <sql>
+            INSERT INTO YAKEEN_PLATFORM.service_catalog.TBL_PERMISSION_PRIVILEGE
+            (PK_PERMISSION_PRIVILEGE_ID, FK_ROLE_PERMISSION_ID, FK_PRIVILEGE_ID)
+            VALUES(5, 3, 1);
+        </sql>
+
+    </changeSet>
+</databaseChangeLog> 
