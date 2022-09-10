@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="shahid" id="user-role-mgmt">
+
+        <createTable tableName="TBL_PRIVILEGE" remarks="This table contains all the privileges define">
+            <column name="PK_PRIVILEGE_ID" type="int" computed="false">
+                <constraints nullable="false" primaryKey="true"
+                             unique="true" primaryKeyName="PK_TBL_PRIVILEGE"/>
+            </column>
+            <column name="CODE" type="varchar(30)" computed="false">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)" computed="false"/>
+        </createTable>
+
+        <createTable tableName="TBL_URL" remarks="This table contains all the URL">
+            <column name="PK_URL_ID" type="int" computed="false">
+                <constraints nullable="false" primaryKey="true"
+                             unique="true" primaryKeyName="PK_TBL_URL"/>
+            </column>
+            <column name="PATH" type="varchar(255)" computed="false">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="DESCRIPTION" type="varchar(255)" computed="false"/>
+         </createTable>
+
+        <createTable tableName="TBL_USER" remarks="This table contains all the User">
+            <column name="PK_USER_ID" type="int" computed="false">
+                <constraints nullable="false" primaryKey="true"
+                             unique="true" primaryKeyName="PK_TBL_USER"/>
+            </column>
+            <column name="NAME" type="varchar(255)" computed="false">
+                <constraints unique="true" nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="TBL_ROLE" remarks="This table contains all the Roles">
+            <column name="PK_ROLE_ID" type="int" computed="false">
+                <constraints nullable="false" primaryKey="true"
+                             unique="true" primaryKeyName="PK_TBL_ROLE"/>
+            </column>
+            <column name="NAME" type="varchar(255)" computed="false">
+                <constraints unique="true" nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="TBL_USER_ROLE" remarks="This table contains all the Roles">
+            <column name="PK_USER_ROLE_ID" type="int" computed="false">
+                <constraints nullable="false" primaryKey="true"
+                             unique="true" primaryKeyName="PK_TBL_USER_ROLE"/>
+            </column>
+            <column name="FK_USER_ID" type="int" computed="false">
+                <constraints nullable="false"
+                             foreignKeyName="FK_USER_ID_TBL_USER_ROLE"
+                             referencedTableName="TBL_USER"
+                             referencedColumnNames="PK_USER_ID" />
+            </column>
+            <column name="FK_ROLE_ID" type="int" computed="false">
+            <constraints nullable="false"
+                         foreignKeyName="FK_ROLE_ID_TBL_USER_ROLE"
+                         referencedTableName="TBL_ROLE"
+                         referencedColumnNames="PK_ROLE_ID" />
+            </column>
+        </createTable>
+
+        <createTable tableName="TBL_ROLE_PERMISSION" remarks="This table contains all the Roles">
+            <column name="PK_ROLE_PERMISSION_ID" type="int" computed="false">
+                <constraints nullable="false" primaryKey="true"
+                             unique="true" primaryKeyName="PK_TBL_ROLE_PERMISSION"/>
+            </column>
+            <column name="FK_URL_ID" type="int" computed="false">
+                <constraints nullable="false"
+                             foreignKeyName="FK_URL_ID_TBL_ROLE_PERMISSION"
+                             referencedTableName="TBL_URL"
+                             referencedColumnNames="PK_URL_ID" />
+            </column>
+            <column name="FK_ROLE_ID" type="int" computed="false">
+                <constraints nullable="false"
+                             foreignKeyName="FK_ROLE_ID_TBL_ROLE_PERMISSION"
+                             referencedTableName="TBL_ROLE"
+                             referencedColumnNames="PK_ROLE_ID" />
+            </column>
+        </createTable>
+
+        <createTable tableName="TBL_PERMISSION_PRIVILEGE" remarks="This table contains all the Roles">
+            <column name="PK_PERMISSION_PRIVILEGE_ID" type="int" computed="false">
+                <constraints nullable="false" primaryKey="true"
+                             unique="true" primaryKeyName="PK_TBL_PERMISSION_PRIVILEGE"/>
+            </column>
+            <column name="FK_ROLE_PERMISSION_ID" type="int" computed="false">
+                <constraints nullable="false"
+                             foreignKeyName="FK_ROLE_PERMISSION_ID_TBL_PERMISSION_PRIVILEGE"
+                             referencedTableName="TBL_ROLE_PERMISSION"
+                             referencedColumnNames="PK_ROLE_PERMISSION_ID" />
+            </column>
+            <column name="FK_PRIVILEGE_ID" type="int" computed="false">
+                <constraints nullable="false"
+                             foreignKeyName="FK_PRIVILEGE_ID_TBL_PERMISSION_PRIVILEGE"
+                             referencedTableName="TBL_PRIVILEGE"
+                             referencedColumnNames="PK_PRIVILEGE_ID" />
+            </column>
+        </createTable>
+
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="PRIVILEGE_SEQ" startValue="1"/>
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="URL_SEQ" startValue="1"/>
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="USER_SEQ" startValue="1"/>
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="ROLE_SEQ" startValue="1"/>
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="USER_ROLE_SEQ" startValue="1"/>
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="ROLE_PERMISSION_SEQ" startValue="1"/>
+        <createSequence cycle="false" incrementBy="1" maxValue="9223372036854775807" minValue="-9223372036854775808" sequenceName="PERMISSION_PRIVILEGE_SEQ" startValue="1"/>
+
+    </changeSet>
+</databaseChangeLog> 

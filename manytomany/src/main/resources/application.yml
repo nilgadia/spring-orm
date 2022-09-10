@@ -1,0 +1,26 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /spring-orm
+
+spring:
+  jpa:
+    show-sql: true
+    format-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.shahid.strategy.TableNamingStrategy
+
+  application:
+    name: spring-orm
+  datasource:
+    url: jdbc:sqlserver://localhost;DatabaseName=TEST_PLATFORM;encrypt=true;trustServerCertificate=true
+    username: SERV_CTLG
+    password: nyk@12345678
+  liquibase:
+    change-log: classpath:/liquibase/changelog-master.xml
+    url: jdbc:sqlserver://localhost;DatabaseName=TEST_PLATFORM;encrypt=true;trustServerCertificate=true
+    user: SERV_CTLG
+    password: nyk@12345678
+  main:
+    allow-bean-definition-overriding: true
