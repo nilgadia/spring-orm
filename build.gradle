@@ -1,0 +1,22 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+}
+
+group = 'com.shahid'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0'
+	testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
