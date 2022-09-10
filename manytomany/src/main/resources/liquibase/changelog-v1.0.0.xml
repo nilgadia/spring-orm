@@ -50,10 +50,6 @@
         </createTable>
 
         <createTable tableName="TBL_USER_ROLE" remarks="This table contains all the Roles">
-            <column name="PK_USER_ROLE_ID" type="int" computed="false">
-                <constraints nullable="false" primaryKey="true"
-                             unique="true" primaryKeyName="PK_TBL_USER_ROLE"/>
-            </column>
             <column name="FK_USER_ID" type="int" computed="false">
                 <constraints nullable="false"
                              foreignKeyName="FK_USER_ID_TBL_USER_ROLE"
@@ -61,7 +57,7 @@
                              referencedColumnNames="PK_USER_ID" />
             </column>
             <column name="FK_ROLE_ID" type="int" computed="false">
-            <constraints nullable="false"
+                <constraints nullable="false"
                          foreignKeyName="FK_ROLE_ID_TBL_USER_ROLE"
                          referencedTableName="TBL_ROLE"
                          referencedColumnNames="PK_ROLE_ID" />
