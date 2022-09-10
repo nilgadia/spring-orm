@@ -6,7 +6,7 @@ import org.shahid.entity.User;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring" ,  uses = {UserRoleConverter.class})
+@Mapper(componentModel = "spring")
 public interface UserConverter {
     UserDto mapEntityToDto(final User entity);
     List<UserDto> mapEntitiesToDtos(final List<User> entities);
