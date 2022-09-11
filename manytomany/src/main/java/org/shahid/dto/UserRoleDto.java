@@ -4,15 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.List;
-
 
 @Setter
 @Getter
-public class RolePermissionDto implements Serializable {
+public class UserRoleDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String path;
-    private List<PermissionPrivilegeDto> permissionPrevileges;
+
+    private int id;
+    private RoleDto role;
 }
