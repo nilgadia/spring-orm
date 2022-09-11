@@ -20,10 +20,10 @@ public class User implements Serializable {
     @Column(name = "pk_user_id")
     private int id;
     private String name;
-//  In this approach  it impossible to map any additional columns that are part of the association table
-//  @ManyToMany
-//  @JoinTable(name="TBL_USER_ROLE", joinColumns=@JoinColumn(name="fk_user_id"), inverseJoinColumns=@JoinColumn(name="fk_role_id"))
-//  private List<Role> roles;
+    // In this approach  it impossible to map any additional columns that are part of the association table
+//    @ManyToMany
+//    @JoinTable(name="TBL_USER_ROLE", joinColumns=@JoinColumn(name="fk_user_id"), inverseJoinColumns=@JoinColumn(name="fk_role_id"))
+//    private List<Role> roles;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<UserRole> userRoles;
 }
